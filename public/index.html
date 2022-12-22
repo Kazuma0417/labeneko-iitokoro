@@ -13,6 +13,7 @@
       import {
         getAuth,
         createUserWithEmailAndPassword,
+        onAuthStateChanged,
       } from "https://www.gstatic.com/firebasejs/9.9.2/firebase-auth.js";
       // TODO: Add SDKs for Firebase products that you want to use
       // https://firebase.google.com/docs/web/setup#available-libraries
@@ -56,6 +57,14 @@
           .catch((error) => {
             alert("登録に失敗しました[" + error.message + "]");
           });
+      });
+
+      // 認証状態の変更を画面に反映する
+      onAuthStateChanged(auth, (user) => {
+        const userEmailText = document.getElementById("user-email-text");
+        if (user) {
+          userEmailText.innerText = user.email;
+        }
       });
     </script>
     <h1>あなたのいいところは?</h1>
