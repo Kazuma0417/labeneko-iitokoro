@@ -36,7 +36,6 @@ const registerForm = document.getElementById('register-form');
 const registerMailAddressInput = document.getElementById('registerMailAddress');
 const registerPasswordInput = document.getElementById('registerPassword');
 registerForm.addEventListener('submit', (e) => {
-  e.preventDefault();
   const mailAddress = registerMailAddressInput.value;
   const password = registerPasswordInput.value;
   if (!mailAddress || !password) {
